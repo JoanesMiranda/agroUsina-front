@@ -1,0 +1,54 @@
+
+  #buttons {
+    margin-top: 80px;
+  }
+
+  #buttons .col-btn-register {
+    max-width: 210px;
+  }
+
+  #buttons .col-btn-farm {
+    max-width: 210px;
+  }
+
+  #buttons .col-btn-search {
+    max-width: 210px;
+  }
+
+  #span{
+    margin-right: 50px;
+  }
+  
+  .card {
+    margin-top: 10px;
+    border-radius: 10%;
+  }
+  
+  .card .row .title {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #3d3d4d;
+  }
+  .card .row .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 50px;
+  }
+ 
+  #container-mills{
+    margin-top: 30px;
+  }
+  #container-mills .title {
+    text-decoration: none;
+   
+  }
+
+  svg {
+    margin-left: auto;
+    color: #b6b6d3;
+  }
+
+
+  

@@ -1,0 +1,27 @@
+#buttons-registrations {
+    margin-top: 80px;
+}
+
+#buttons-registrations .btn {
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+#buttons-registrations .row .col-btn-harvests {
+  max-width: 220px;
+
+}
+
+#buttons-registrations .row .col-btn-farm{
+  max-width: 210px;
+}
+
+#buttons-registrations .row .col .icon-buttons {
+  margin-right: 5px;
+  color: #FFFFFF;
+}
+
+#buttons-registrations .row .col-btn-back .btn{
+  color: #5555;
+
+}

@@ -1,0 +1,63 @@
+#buttons {
+  margin-top: 80px;
+}
+
+#buttons .btn {
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+#buttons .col-btn-register-mills {
+  max-width: 195px;
+}
+
+#icon-buttons {
+  margin-right: 5px;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.link-reg-mills {
+  text-decoration:none;
+  border: solid 20px #455455;
+}
+
+.card {
+  border-radius: 2px;
+}
+
+.card-hover{
+  transition: transform 0.5s;
+}
+
+.card-hover:hover{
+  transform: translateX(10px);
+}
+
+.img-mills {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.card .row .col-img-mills {
+  max-width: 100px;
+}
+
+.card .row .title {
+  display: flex;
+  align-items: center;
+  color: #3d3d4d;
+}
+
+.card .row .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 50px;
+}
+
+svg {
+  margin-left: auto;
+  color: #b6b6d3;
+}
