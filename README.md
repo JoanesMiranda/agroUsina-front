@@ -64,7 +64,7 @@ Você deve publicar este projeto em https://github.com/.
 
 > 1º - Clonando o repositório:
 ```
-git clone https://github.com/JoanesMiranda/
+git clone https://github.com/JoanesMiranda/agroUsina-front
 ```
 
 > 2º - Instalando as dependências:
@@ -75,23 +75,8 @@ yarn
 
 npm install
 ```
-> 3º - Instalando o docker 
-```
-* Instalando o docker no linux ubuntu: https://docs.docker.com/engine/install/ubuntu/
-* Adicionando uma imagem do postgre ao docker: https://hub.docker.com/_/postgres
-```
-> 4º - Criar um banco de dados no posrtgree
-```
-* - Opcinal: instalar o Dbeaver - https://dbeaver.com/download/
-* - Conectar-se ao postgre usando o Dbeaver e criar um banco de dados com o nome: db_usina.
-```
-> 5º - Migrações
-```
-* - Rodar o comando para criar as migrações do projeto:
-    yarn sequelize db:migrate
-```
 
-> Iniciando o projeto:
+>3º Iniciando o projeto:
 
 ```
 yarn start
@@ -99,6 +84,38 @@ yarn start
 // or
 
 npm start
+```
+
+> 4º - clonando o back-end da aplicação
+```
+https://github.com/JoanesMiranda/agroUsina-back
+
+```
+
+> 5º - Instalando o docker 
+```
+* Instalando o docker no linux ubuntu: https://docs.docker.com/engine/install/ubuntu/
+* Adicionando uma imagem do postgre ao docker: https://hub.docker.com/_/postgres
+```
+> 6º - Criar um banco de dados no postgres
+```
+* - Opcional: instalar o Dbeaver - https://dbeaver.com/download/
+* - Conectar-se ao postgres usando o Dbeaver e criar um banco de dados com o nome: db_usina.
+```
+> 7º - Migrações
+```
+* - Rodar o comando para criar as migrações do projeto:
+    yarn sequelize db:migrate
+```
+
+> 8º Iniciando o projeto:
+
+```
+yarn dev
+
+// or
+
+npm dev
 ```
 
 OBs: Projeto ainda em desenvolvimento.
