@@ -26,6 +26,20 @@ export default function Farms(props) {
 
     }, [props.match.params.id]);
 
+    const deleteFarms = async (id) => {
+        const confirmDel = window.confirm(`Deseja excluir ?`);
+
+        if (confirmDel) {
+            try {
+                await api.delete(`/farms/${id}`);
+
+            } catch (err) {
+                throw new Error("Erro ao excluir Farms", err);
+            }
+            window.location.reload();
+        }
+    }
+
 
     const registerFarm = useRef();
 
@@ -42,7 +56,12 @@ export default function Farms(props) {
             <Container>
                 {farms.map(farm => (
                     <Card className="card-hover" key={farm.id}>
-                        <Card.Header> <Button variant="light float-right" > {<FiTrash size={20} />}</Button></Card.Header>
+                        <Card.Header>
+                            <Button variant="light float-right"
+                                onClick={() => deleteFarms(farm.id)}>
+                                {<FiTrash size={20} />}
+                            </Button>
+                        </Card.Header>
                         <Link to={`/farms/${farm.id}`}  >
                             <Card.Body>
                                 <Row>
