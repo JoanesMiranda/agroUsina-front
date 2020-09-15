@@ -23,7 +23,7 @@ Esse projeto foi desenvolvido utilizando:
 - [docker](https://hub.docker.com/_/postgres)
 - [Google Maps Platform](https://cloud.google.com/maps-platform?hl=pt-br)
 
-## :Projeto
+## Projeto
 
 Desafio Fullstack:
 

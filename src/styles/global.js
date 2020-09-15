@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-//import sugarCaneBackgroud from '../assets/sugar-cane.svg';
 
 export default createGlobalStyle`
 *{

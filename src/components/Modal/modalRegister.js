@@ -19,7 +19,7 @@ const Register = forwardRef((props, ref) => {
       name,
     };
     try {
-      await api.post('mills', data);
+      await api.post('/mills', data);
     } catch (err) {
       console.log(err)
     }
@@ -41,7 +41,7 @@ const Register = forwardRef((props, ref) => {
                 placeholder="Digite o nome da usina"
                 value={name}
                 onChange={e => setName(e.target.value)}
-              />
+                required />
             </Form.Group>
 
           </Modal.Body>

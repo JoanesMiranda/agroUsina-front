@@ -3,7 +3,7 @@ import { Button, Modal, Form, Row, Col } from 'react-bootstrap';
 import api from '../../services/api';
 
 const RegisterHarvests = forwardRef((props, ref) => {
-    
+
     useImperativeHandle(ref, () => ({ handleOpenRegisterHarvests }));
 
     const [show, setShow] = useState(false);
@@ -44,6 +44,7 @@ const RegisterHarvests = forwardRef((props, ref) => {
                                 placeholder="codigo da colheita"
                                 value={code}
                                 onChange={e => setCode(e.target.value)}
+                                required
                             />
                         </Form.Group>
                         <h6>Colheita: </h6>
@@ -55,6 +56,7 @@ const RegisterHarvests = forwardRef((props, ref) => {
                                         <Form.Control type="date"
                                             value={start_date}
                                             onChange={e => setStart_date(e.target.value)}
+                                            required
                                         />
                                     </Form.Group>
                                 </Col>
@@ -64,6 +66,7 @@ const RegisterHarvests = forwardRef((props, ref) => {
                                         <Form.Control type="date"
                                             value={finish_date}
                                             onChange={e => setFinish_date(e.target.value)}
+                                            required
                                         />
                                     </Form.Group>
                                 </Col>

@@ -27,13 +27,17 @@ export default function Mills() {
 
 
   const deleteMilss = async (id) => {
-    try {
-      await api.delete(`/mills/${id}`);
-      window.location.reload();
-    } catch (err) {
-      throw new Error({ error: "Erro ao excluir Mill", err });
-    }
+    const confirmDel = window.confirm(`Deseja excluir ?`);
 
+    if (confirmDel) {
+      try {
+        await api.delete(`/mills/${id}`);
+
+      } catch (err) {
+        throw new Error("Erro ao excluir Mill", err);
+      }
+      window.location.reload();
+    }
   }
 
   const search = useRef();
@@ -59,7 +63,6 @@ export default function Mills() {
       </Container>
 
       <Container>
-
         {mills.map((mill) => (
           <Card className="card-hover" key={mill.id}>
             <Card.Header><Button onClick={() => deleteMilss(mill.id)} variant="light float-right" type="submit"> {<FiTrash size={20} />}</Button></Card.Header>

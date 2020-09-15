@@ -15,12 +15,12 @@ export default function Fields(props) {
     const [code, setCode] = useState("");
     const [latitude, setLatitude] = useState("");
     const [longitude, setLongitude] = useState("");
-    const [coordinates, setCoordinates] = useState([""]);
+    // const [coordinates, setCoordinates] = useState([""]);
 
 
     useEffect(() => {
         api.get(`/farms/${props.match.params.id}/fields`).then(response => {
-            setCoordinates(response.data.fields);
+            // setCoordinates(response.data.fields);
         });
 
     }, [props.match.params.id]);

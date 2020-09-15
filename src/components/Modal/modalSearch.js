@@ -19,7 +19,11 @@ const Search = forwardRef((props, ref) => {
         <Form>
           <Modal.Body>
             <Form.Group >
-              <Form.Control type="text" placeholder={`Digite o nome da ${props.name}`} />
+              <Form.Control
+                type="text"
+                placeholder={`Digite o nome da ${props.name}`}
+                required
+              />
             </Form.Group>
           </Modal.Body>
 

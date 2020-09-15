@@ -43,6 +43,7 @@ const RegisterFarms = forwardRef((props, ref) => {
                                 placeholder="Codigo"
                                 value={code}
                                 onChange={e => setCode(e.target.value)}
+                                required
                             />
                         </Form.Group>
                         <Form.Group >
@@ -51,6 +52,7 @@ const RegisterFarms = forwardRef((props, ref) => {
                                 placeholder="Nome da fazenda"
                                 value={name}
                                 onChange={e => setName(e.target.value)}
+                                required
                             />
                         </Form.Group>
 

@@ -23,6 +23,20 @@ export default function Registrations(props) {
     });
   }, [props.match.params.id]);
 
+  const deleteHarvests = async (id) => {
+    const confirmDel = window.confirm(`Deseja excluir ?`);
+
+    if (confirmDel) {
+      try {
+        await api.delete(`/harvests/${id}`);
+
+      } catch (err) {
+        throw new Error("Erro ao excluir Harvests", err);
+      }
+      window.location.reload();
+    }
+  }
+
   return (
     <>
       <Header title={nameHarvests} />
@@ -34,7 +48,7 @@ export default function Registrations(props) {
         {harvests.map(harvest => (
           <Card className="card-hover" key={harvest.id} >
             <Card.Header>
-              <Button variant="light float-right" > {<FiTrash size={20} />}</Button>
+              <Button variant="light float-right" onClick={() => deleteHarvests(harvest.id)}> {<FiTrash size={20} />}</Button>
             </Card.Header>
             <Link to={`/harvests/${harvest.id}`} >
               <Card.Body>
