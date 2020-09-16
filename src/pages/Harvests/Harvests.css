@@ -21,7 +21,7 @@
   
   .card {
     margin-top: 10px;
-    border-radius: 10%;
+    border-radius: 2px;
   }
   
   .card .row .title {
