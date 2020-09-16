@@ -11,3 +11,9 @@
   color: #5555;
 
 }
+
+#container-farm-card .cods-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

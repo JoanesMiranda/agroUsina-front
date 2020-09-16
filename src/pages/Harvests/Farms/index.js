@@ -53,10 +53,11 @@ export default function Farms(props) {
                 <hr />
             </Container>
 
-            <Container>
+            <Container id="container-farm-card">
                 {farms.map(farm => (
                     <Card className="card-hover" key={farm.id}>
-                        <Card.Header>
+                        <Card.Header className="cods-header">
+                        Codigo: {farm.code}
                             <Button variant="light float-right"
                                 onClick={() => deleteFarms(farm.id)}>
                                 {<FiTrash size={20} />}
@@ -66,9 +67,6 @@ export default function Farms(props) {
                             <Card.Body>
                                 <Row>
                                     <Col>
-                                        <Row>
-                                            <Col className="title" ><Card.Title>Codigo: {farm.code}</Card.Title></Col>
-                                        </Row>
                                         <Row>
                                             <Col className="title">Nome: {farm.name}</Col>
                                         </Row>

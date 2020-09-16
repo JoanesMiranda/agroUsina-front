@@ -24,7 +24,7 @@ export default function Registrations(props) {
   }, [props.match.params.id]);
 
   const deleteHarvests = async (id) => {
-  
+
     const confirmDel = window.confirm(`Deseja excluir ?`);
 
     if (confirmDel) {
@@ -48,16 +48,14 @@ export default function Registrations(props) {
 
         {harvests.map(harvest => (
           <Card className="card-hover" key={harvest.id} >
-            <Card.Header>
+            <Card.Header className="cods-header">
+              Codigo: {harvest.code}
               <Button variant="light float-right" onClick={() => deleteHarvests(harvest.id)}> {<FiTrash size={20} />}</Button>
             </Card.Header>
             <Link to={`/harvests/${harvest.id}`} >
               <Card.Body>
                 <Row>
                   <Col>
-                    <Row>
-                      <Col className="title" ><Card.Title>Codigo: {harvest.code}</Card.Title></Col>
-                    </Row>
                     <Row>
                       <Col className="title">Inicio:
                      {new Date(harvest.start_date_harvest).toLocaleDateString('pt-BR')}
