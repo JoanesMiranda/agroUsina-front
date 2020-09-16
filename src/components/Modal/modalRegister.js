@@ -13,16 +13,20 @@ const Register = forwardRef((props, ref) => {
 
   const [name, setName] = useState('');
 
-  async function handleAddRegister() {
-
+  const handleAddRegister = async (e) => {
+    e.preventDefault();
+    
     const data = {
-      name,
+      name: name,
     };
+
     try {
-      await api.post('/mills', data);
+      await api.post('mills', data);
+      window.location.reload();
     } catch (err) {
       console.log(err)
     }
+
   }
 
   return (
@@ -41,7 +45,7 @@ const Register = forwardRef((props, ref) => {
                 placeholder="Digite o nome da usina"
                 value={name}
                 onChange={e => setName(e.target.value)}
-                required />
+                required={true} />
             </Form.Group>
 
           </Modal.Body>

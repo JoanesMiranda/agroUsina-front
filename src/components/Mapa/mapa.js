@@ -4,6 +4,7 @@ import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocom
 import { Combobox, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox";
 import { formatRelative } from "date-fns";
 import { Button, Form } from 'react-bootstrap';
+import config from '../../config/constants';
 
 import "@reach/combobox/styles.css";
 
@@ -30,7 +31,7 @@ export default function App(props) {
     console.log("longitude: ", props.longitude)
 
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: 'credential',
+        googleMapsApiKey: config.API_KEY_MAPS,
         libraries,
     });
 

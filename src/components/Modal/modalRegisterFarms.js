@@ -14,14 +14,15 @@ const RegisterFarms = forwardRef((props, ref) => {
     const [name, setName] = useState('');
     const [code, setCode] = useState('');
 
-    async function handleAddRegister() {
-
+    async function handleAddRegister(e) {
+        e.preventDefault();
         const data = {
             code,
             name,
         };
         try {
             await api.post(`/harvests/${props.id}/farms`, data);
+            window.location.reload();
         } catch (err) {
             console.log(err)
         }
@@ -43,7 +44,7 @@ const RegisterFarms = forwardRef((props, ref) => {
                                 placeholder="Codigo"
                                 value={code}
                                 onChange={e => setCode(e.target.value)}
-                                required
+                                required={true}
                             />
                         </Form.Group>
                         <Form.Group >
@@ -52,7 +53,7 @@ const RegisterFarms = forwardRef((props, ref) => {
                                 placeholder="Nome da fazenda"
                                 value={name}
                                 onChange={e => setName(e.target.value)}
-                                required
+                                required={true}
                             />
                         </Form.Group>
 

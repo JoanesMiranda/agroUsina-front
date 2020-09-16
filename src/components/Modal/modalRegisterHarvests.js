@@ -15,8 +15,8 @@ const RegisterHarvests = forwardRef((props, ref) => {
     const [start_date, setStart_date] = useState("");
     const [finish_date, setFinish_date] = useState("");
 
-    async function handleAddHarvests() {
-
+    async function handleAddHarvests(e) {
+        e.preventDefault();
         const data = {
             code,
             start_date_harvest: start_date,
@@ -26,6 +26,7 @@ const RegisterHarvests = forwardRef((props, ref) => {
 
         try {
             await api.post(`/mills/${props.id}/harvests`, data);
+            window.location.reload();
         } catch (err) {
             console.log(err)
         }
@@ -44,7 +45,7 @@ const RegisterHarvests = forwardRef((props, ref) => {
                                 placeholder="codigo da colheita"
                                 value={code}
                                 onChange={e => setCode(e.target.value)}
-                                required
+                                required={true}
                             />
                         </Form.Group>
                         <h6>Colheita: </h6>
@@ -56,7 +57,7 @@ const RegisterHarvests = forwardRef((props, ref) => {
                                         <Form.Control type="date"
                                             value={start_date}
                                             onChange={e => setStart_date(e.target.value)}
-                                            required
+                                            required={true}
                                         />
                                     </Form.Group>
                                 </Col>
@@ -66,7 +67,7 @@ const RegisterHarvests = forwardRef((props, ref) => {
                                         <Form.Control type="date"
                                             value={finish_date}
                                             onChange={e => setFinish_date(e.target.value)}
-                                            required
+                                            required={true}
                                         />
                                     </Form.Group>
                                 </Col>

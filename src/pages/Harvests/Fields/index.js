@@ -26,8 +26,8 @@ export default function Fields(props) {
     }, [props.match.params.id]);
 
 
-    async function handleAddFarms() {
-
+    async function handleAddFarms(e) {
+        e.preventDefault();
         const data = {
             code,
             latitude,
@@ -37,6 +37,7 @@ export default function Fields(props) {
 
         try {
             await api.post(`/farms/${props.match.params.id}/fields`, data);
+            window.location.reload();
         } catch (err) {
             console.log(err)
         }
@@ -102,7 +103,7 @@ export default function Fields(props) {
                 </Card>
             </Container>
             <Container >
-                <MapContainer longitude={latitude} latitude={longitude}/>
+                <MapContainer longitude={latitude} latitude={longitude} />
             </Container>
         </>
     );

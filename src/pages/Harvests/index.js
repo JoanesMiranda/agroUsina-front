@@ -24,6 +24,7 @@ export default function Registrations(props) {
   }, [props.match.params.id]);
 
   const deleteHarvests = async (id) => {
+  
     const confirmDel = window.confirm(`Deseja excluir ?`);
 
     if (confirmDel) {
