@@ -22,10 +22,11 @@ const RegisterFarms = forwardRef((props, ref) => {
         };
         try {
             await api.post(`/harvests/${props.id}/farms`, data);
-            window.location.reload();
+
         } catch (err) {
             console.log(err)
         }
+        window.location.reload();
     }
 
     return (

@@ -27,7 +27,7 @@ export default function Mills() {
 
 
   const deleteMilss = async (id) => {
-   
+
     const confirmDel = window.confirm(`Deseja excluir ?`);
 
     if (confirmDel) {

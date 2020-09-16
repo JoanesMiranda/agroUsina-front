@@ -15,18 +15,17 @@ const Register = forwardRef((props, ref) => {
 
   const handleAddRegister = async (e) => {
     e.preventDefault();
-    
+
     const data = {
       name: name,
     };
 
     try {
-      await api.post('mills', data);
-      window.location.reload();
+      await api.post('/mills', data);
     } catch (err) {
       console.log(err)
     }
-
+    window.location.reload();
   }
 
   return (
@@ -54,7 +53,7 @@ const Register = forwardRef((props, ref) => {
             <Button variant="secondary" onClick={handleClose}>
               Cancelar
             </Button>
-            <Button variant="primary" type="submit" onClick={handleClose}>
+            <Button variant="primary" type="submit" >
               Cadastrar
             </Button>
           </Modal.Footer>

@@ -26,10 +26,11 @@ const RegisterHarvests = forwardRef((props, ref) => {
 
         try {
             await api.post(`/mills/${props.id}/harvests`, data);
-            window.location.reload();
+
         } catch (err) {
             console.log(err)
         }
+        window.location.reload();
     }
 
     return (
