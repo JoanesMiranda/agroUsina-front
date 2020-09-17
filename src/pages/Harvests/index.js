@@ -40,11 +40,13 @@ export default function Registrations(props) {
 
   return (
     <>
-      <Header title={nameHarvests} />
+      <Header title={`Usina: ${nameHarvests}`} />
       <Buttons link="/" id={props.match.params.id} name="Cadastrar colheitas" />
 
       <Container id="container-mills">
-        <h5>Colheitas:</h5>
+        {harvests.length === 0 ?
+          <h6>Nenhuma colheita cadastrada</h6> :
+          <h5>Colheitas:</h5>}
 
         {harvests.map(harvest => (
           <Card className="card-hover" key={harvest.id} >

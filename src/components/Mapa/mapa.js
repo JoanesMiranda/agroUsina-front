@@ -26,9 +26,6 @@ const center = {
 
 export default function App(props) {
 
-    console.log("latitude: ", props.latitude)
-    console.log("longitude: ", props.longitude)
-
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: process.env.API_KEY_MAPS,
         libraries,
@@ -36,6 +33,7 @@ export default function App(props) {
 
     const [markers, setMarkers] = React.useState([]);
     const [selected, setSelected] = React.useState(null);
+
 
     const onMapClick = React.useCallback((e) => {
         setMarkers((current) => [
@@ -77,6 +75,7 @@ export default function App(props) {
                 onLoad={onMapLoad}
             >
                 {markers.map((marker) => (
+
                     <Marker
                         key={`${marker.lat}-${marker.lng}`}
                         position={{ lat: marker.lat, lng: marker.lng }}
@@ -152,7 +151,6 @@ function Search({ panTo }) {
             radius: 100 * 1000,
         },
     });
-
 
     const handleInput = (e) => {
         setValue(e.target.value);

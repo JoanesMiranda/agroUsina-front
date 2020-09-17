@@ -17,11 +17,13 @@ export default function Farms(props) {
 
     const [farms, setFarms] = useState([]);
     const [millId, setMillId] = useState([]);
+    const [codeHarvest, setCodeHarvest] = useState([]);
 
     useEffect(() => {
         api.get(`/harvests/${props.match.params.id}/farms`).then(response => {
             setFarms(response.data.farms);
             setMillId(response.data.mill_id);
+            setCodeHarvest(response.data.code);
         });
 
     }, [props.match.params.id]);
@@ -40,12 +42,11 @@ export default function Farms(props) {
         }
     }
 
-
     const registerFarm = useRef();
 
     return (
         <>
-            <Header title="Fazendas cadastradas" />
+            <Header title={`Colheita: ${codeHarvest}`} />
             <Container id="container-farm">
                 <RegisterFarms ref={registerFarm} id={props.match.params.id} />
                 <Button onClick={() => registerFarm.current.handleOpenRegisterFarms()}>Cadastrar fazendas</Button>
@@ -53,6 +54,9 @@ export default function Farms(props) {
                 <hr />
             </Container>
 
+            <Container>{farms.length === 0 ?
+          <h6>Nenhuma fazenda cadastrada</h6> : <h5>Fazendas:</h5>}
+        </Container>
             <Container id="container-farm-card">
                 {farms.map(farm => (
                     <Card className="card-hover" key={farm.id}>
@@ -76,7 +80,6 @@ export default function Farms(props) {
                             </Card.Body>
                         </Link>
                     </Card>
-
                 ))}
             </Container>
         </>

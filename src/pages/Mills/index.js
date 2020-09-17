@@ -17,6 +17,7 @@ import sugarcane from '../../assets/sugarcane.png';
 export default function Mills() {
 
   const [mills, setMills] = useState([]);
+  console.log(mills.length)
 
   useEffect(() => {
 
@@ -47,9 +48,7 @@ export default function Mills() {
 
   return (
     <>
-
       <Header title="Usinas Cadastradas" />
-
       <Container id="buttons">
         <Row>
           <Col className="col-btn-register-mills">
@@ -63,6 +62,8 @@ export default function Mills() {
         </Row>
         <hr />
       </Container>
+
+      <Container>{mills.length === 0 ? <h6>Nenhuma usina cadastrada</h6> : ""} </Container>
 
       <Container>
         {mills.map((mill) => (

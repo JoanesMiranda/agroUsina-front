@@ -103,7 +103,7 @@ export default function Fields(props) {
                 </Card>
             </Container>
             <Container >
-                <MapContainer longitude={latitude} latitude={longitude} />
+                <MapContainer />
             </Container>
         </>
     );
