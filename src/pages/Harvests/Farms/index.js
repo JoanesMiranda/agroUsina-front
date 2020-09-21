@@ -67,7 +67,7 @@ export default function Farms(props) {
                                 {<FiTrash size={20} />}
                             </Button>
                         </Card.Header>
-                        <Link to={`/farms/${farm.id}`}  >
+                        <Link to={`/maps/${farm.id}`}  >
                             <Card.Body>
                                 <Row>
                                     <Col>

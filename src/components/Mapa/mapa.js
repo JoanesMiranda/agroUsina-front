@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState, useRef, useCallback } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
 import { Combobox, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox";
 import { formatRelative } from "date-fns";
 import { Button, Form } from 'react-bootstrap';
+
+import Fields from '../../pages/Harvests/Fields';
 
 import "@reach/combobox/styles.css";
 
@@ -31,27 +33,26 @@ export default function App(props) {
         libraries,
     });
 
-    const [markers, setMarkers] = React.useState([]);
-    const [selected, setSelected] = React.useState(null);
+    const [markers, setMarkers] = useState([]);
+    const [selected, setSelected] = useState(null);
 
 
-    const onMapClick = React.useCallback((e) => {
+    const onMapClick = useCallback((e) => {
         setMarkers((current) => [
             ...current,
             {
                 lat: e.latLng.lat(),
                 lng: e.latLng.lng(),
-                time: new Date(),
             },
         ]);
     }, []);
 
-    const mapRef = React.useRef();
-    const onMapLoad = React.useCallback((map) => {
+    const mapRef = useRef();
+    const onMapLoad = useCallback((map) => {
         mapRef.current = map;
     }, []);
 
-    const panTo = React.useCallback(({ lat, lng }) => {
+    const panTo = useCallback(({ lat, lng }) => {
         mapRef.current.panTo({ lat, lng });
         mapRef.current.setZoom(14);
     }, []);
@@ -61,6 +62,8 @@ export default function App(props) {
 
     return (
         <div>
+
+            <Fields id={props.match.params.id} coordinates={markers} />
 
             <Locate panTo={panTo} />
             <Search panTo={panTo} />
@@ -192,3 +195,57 @@ function Search({ panTo }) {
     );
 
 }
+
+
+// <Container id="container-fields">
+// <hr />
+// <Card >
+//     <Card.Body>
+//         <Form >
+//             <Form.Group >
+//                 <Form.Label> Coordenadas:</Form.Label>
+//                 {markers.map(cords => (
+//                     <Row key={cords.time}>
+//                         <Col md={4} >
+//                             <Form.Group >
+//                                 <Form.Control
+//                                     type="text"
+//                                     placeholder="codigo"
+//                                     value={code}
+//                                     onChange={e => setCode(e.target.value)}
+//                                 />
+//                             </Form.Group>
+//                         </Col>
+
+//                         <Col md={4} >
+//                             <Form.Group >
+//                                 <Form.Control
+//                                     type="text"
+//                                     placeholder="Logitude"
+//                                     value={cords.lng}
+//                                     onChange={e => setLongitude(e.target.value)}
+//                                 />
+//                             </Form.Group>
+//                         </Col>
+//                         <Col md={4}>
+//                             <Form.Group >
+//                                 <Form.Control
+//                                     type="text"
+//                                     placeholder="Latitude"
+//                                     value={cords.lat}
+//                                     onChange={e => setLatitude(e.target.value)}
+//                                 />
+//                             </Form.Group>
+//                         </Col>
+//                         <Col >
+//                             <Form.Group >
+//                                 <Button variant="success form-control" type="submit">Adicionar campo</Button>
+//                             </Form.Group>
+//                         </Col>
+//                     </Row>
+//                 ))}
+//             </Form.Group>
+//         </Form>
+//     </Card.Body>
+// </Card>
+// </Container>

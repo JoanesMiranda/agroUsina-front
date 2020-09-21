@@ -4,26 +4,24 @@ import { Container, Card, Form, Row, Col, Button } from 'react-bootstrap';
 
 import Header from '../../../components/Header';
 
-import MapContainer from '../../../components/Mapa/mapa';
-
 import './Fields.css';
 
 import api from '../../../services/api';
 
 export default function Fields(props) {
 
-    const [code, setCode] = useState("");
-    const [latitude, setLatitude] = useState("");
-    const [longitude, setLongitude] = useState("");
-    // const [coordinates, setCoordinates] = useState([""]);
+    console.log(props.coordinates);
 
+    const [code, setCode] = useState("");
+    const [latitude, setLatitude] = useState([]);
+    const [longitude, setLongitude] = useState([]);
 
     useEffect(() => {
-        api.get(`/farms/${props.match.params.id}/fields`).then(response => {
+        api.get(`/farms/${props.id}/fields`).then(response => {
             // setCoordinates(response.data.fields);
         });
 
-    }, [props.match.params.id]);
+    }, [props.id]);
 
 
     async function handleAddFarms(e) {
@@ -32,15 +30,17 @@ export default function Fields(props) {
             code,
             latitude,
             longitude,
-            farm_id: props.match.params.id,
+            farm_id: props.id,
         };
 
+        console.log(data);
         try {
-            await api.post(`/farms/${props.match.params.id}/fields`, data);
-            window.location.reload();
+            await api.post(`/farms/${props.id}/fields`, data);
+            alert("Salvo com sucesso");
         } catch (err) {
             console.log(err)
         }
+
     }
 
     return (
@@ -59,52 +59,33 @@ export default function Fields(props) {
                             <Form.Group >
                                 <Form.Label> Coordenadas:</Form.Label>
 
-                                <Row>
-                                    <Col md={4} >
-                                        <Form.Group >
-                                            <Form.Control
-                                                type="text"
-                                                placeholder="codigo"
-                                                value={code}
-                                                onChange={e => setCode(e.target.value)}
-                                            />
-                                        </Form.Group>
-                                    </Col>
-                                    <Col md={4} >
-                                        <Form.Group >
-                                            <Form.Control
-                                                type="text"
-                                                placeholder="Logitude"
-                                                value={longitude}
-                                                onChange={e => setLongitude(e.target.value)}
-                                            />
-                                        </Form.Group>
-                                    </Col>
-                                    <Col md={4}>
-                                        <Form.Group >
-                                            <Form.Control
-                                                type="text"
-                                                placeholder="Latitude"
-                                                value={latitude}
-                                                onChange={e => setLatitude(e.target.value)}
-                                            />
-                                        </Form.Group>
-                                    </Col>
-
-                                    <Col >
-                                        <Form.Group >
-                                            <Button variant="success form-control" type="submit">Adicionar campo</Button>
-                                        </Form.Group>
-                                    </Col>
-                                </Row>
+                                {props.coordinates.map(coordinate => (
+                                    <Row key={coordinate.lat}>
+                                        <Col>
+                                            <Form.Text>
+                                                {console.log(coordinate.lat)}
+                                                Latitude: {coordinate.lat}
+                                            </Form.Text>
+                                        </Col>
+                                        <Col>
+                                            <Form.Text>
+                                                {console.log(coordinate.lng)}
+                                                Longitude: {coordinate.lng}
+                                            </Form.Text>
+                                        </Col>
+                                    </Row>
+                                ))}
                             </Form.Group>
+
+                            <Form.Group >
+                                <Button variant="success form-control" type="submit">Salvar campos</Button>
+                            </Form.Group>
+
                         </Form>
                     </Card.Body>
                 </Card>
             </Container>
-            <Container >
-                <MapContainer />
-            </Container>
+
         </>
     );
 }

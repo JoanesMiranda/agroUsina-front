@@ -5,6 +5,7 @@ import Mills from './pages/Mills';
 import Harvests from './pages/Harvests';
 import Farms from './pages/Harvests/Farms';
 import Fields from './pages/Harvests/Fields';
+import Map from './components/Mapa/mapa';
 
 function Routes() {
     return (
@@ -14,6 +15,7 @@ function Routes() {
             <Route path="/farms/:id" component={Fields} />
             <Route path="/harvests/:id" component={Farms} />
             <Route path="/mills/:id" component={Harvests} />
+            <Route path="/maps/:id" component={Map} />
         </Switch>
     );
 }
