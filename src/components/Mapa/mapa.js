@@ -3,7 +3,7 @@ import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps
 import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
 import { Combobox, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox";
 import { formatRelative } from "date-fns";
-import { Button, Form } from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 
 import Fields from '../../pages/Harvests/Fields';
 
@@ -14,7 +14,7 @@ import mapStyles from "./mapStyles";
 const libraries = ["places"];
 const mapContainerStyle = {
     height: "500px",
-    width: "900px",
+    width: "100%",
 };
 const options = {
     styles: mapStyles,

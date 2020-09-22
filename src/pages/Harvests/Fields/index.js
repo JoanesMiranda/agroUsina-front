@@ -10,15 +10,13 @@ import api from '../../../services/api';
 
 export default function Fields(props) {
 
-    console.log(props.coordinates);
-
     const [code, setCode] = useState("");
     const [latitude, setLatitude] = useState([]);
     const [longitude, setLongitude] = useState([]);
 
     useEffect(() => {
         api.get(`/farms/${props.id}/fields`).then(response => {
-            // setCoordinates(response.data.fields);
+           
         });
 
     }, [props.id]);
@@ -32,8 +30,7 @@ export default function Fields(props) {
             longitude,
             farm_id: props.id,
         };
-
-        console.log(data);
+        
         try {
             await api.post(`/farms/${props.id}/fields`, data);
             alert("Salvo com sucesso");
@@ -78,7 +75,7 @@ export default function Fields(props) {
                             </Form.Group>
 
                             <Form.Group >
-                                <Button variant="success form-control" type="submit">Salvar campos</Button>
+                                <Button variant="success form-control" type="button" >Salvar campos</Button>
                             </Form.Group>
 
                         </Form>
