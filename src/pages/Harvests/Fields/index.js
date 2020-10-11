@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { Link } from 'react-router-dom';
 import { Container, Card, Form, Row, Col, Button } from 'react-bootstrap';
 
 import Header from '../../../components/Header';
@@ -44,7 +44,7 @@ export default function Fields(props) {
         <>
             <Header title="Cadastro dos campos da fazenda" />
             <Container id="container-btn-back">
-                <Button href="/" className="btn-back" variant="link float-right">voltar</Button>
+                <Link to="/"><Button className="btn-back" variant="link float-right">voltar</Button></Link>
 
             </Container>
 

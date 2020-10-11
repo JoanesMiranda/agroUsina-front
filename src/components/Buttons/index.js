@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Link} from 'react-router-dom';
 import { FiPlus, FiSearch } from 'react-icons/fi';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import Search from '../../components/Modal/modalSearch';
@@ -29,7 +30,7 @@ export default function Buttons(props) {
                             <FiSearch className="icon-buttons" />Localizar colheita</Button>
                     </Col>
                     <Col className="col-btn-back" >
-                        <Button variant="link float-right" href={props.link}>voltar</Button>
+                        <Link to={props.link}><Button variant="link float-right" >voltar</Button></Link>
                     </Col>
                 </Row>
                 <hr />

@@ -23,7 +23,7 @@ Esse projeto foi desenvolvido utilizando:
 - [Node JS](https://nodejs.org/en/)
 - [Express JS](https://expressjs.com/pt-br/)
 - [Sequelize JS](https://sequelize.org/master/manual/getting-started.html)
-- [Postgre](https://www.postgresql.org/)
+- [PostgreSQL](https://www.postgresql.org/)
 - [docker](https://hub.docker.com/_/postgres)
 - [Google Maps Platform](https://cloud.google.com/maps-platform?hl=pt-br)
 
@@ -104,7 +104,7 @@ https://github.com/JoanesMiranda/agroUsina-back
 > 6º - Criar um banco de dados no postgres
 ```
 * - Opcional: instalar o Dbeaver - https://dbeaver.com/download/
-* - Conectar-se ao postgres usando o Dbeaver e criar um banco de dados com o nome: db_usina.
+* - Conectar-se ao postgres usando o Dbeaver e criar um banco de dados local (configurar o .env).
 ```
 > 7º - Migrações
 ```

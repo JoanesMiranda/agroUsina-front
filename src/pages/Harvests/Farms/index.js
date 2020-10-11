@@ -50,7 +50,7 @@ export default function Farms(props) {
             <Container id="container-farm">
                 <RegisterFarms ref={registerFarm} id={props.match.params.id} />
                 <Button onClick={() => registerFarm.current.handleOpenRegisterFarms()}>Cadastrar fazendas</Button>
-                <Button href={`/mills/${millId}`} className="btn-back" variant="link float-right">voltar</Button>
+                <Link to={`/mills/${millId}`}><Button className="btn-back" variant="link float-right">voltar</Button></Link>
                 <hr />
             </Container>
 
